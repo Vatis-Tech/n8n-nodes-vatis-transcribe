@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/vatistech/n8n-nodes-vatis-transcribe.git"
+    "url": "https://github.com/Vatis-Tech/n8n-nodes-vatis-transcribe.git"
   },
   "scripts": {
     "build": "n8n-node build",
