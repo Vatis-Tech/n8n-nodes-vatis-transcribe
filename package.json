@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-vatis-transcribe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vatis Transcribe Node for N8N Automations.",
   "license": "MIT",
   "homepage": "https://docs.vatis.tech/introduction",
