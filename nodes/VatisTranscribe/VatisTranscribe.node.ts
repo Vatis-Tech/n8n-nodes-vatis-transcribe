@@ -317,6 +317,9 @@ export class VatisTranscribe implements INodeType {
 						streamConfigurationTemplateId,
 						uploadResponse: responseData,
 					},
+					pairedItem: {
+						item: i,
+					},
 				});
 				continue;
 			}
@@ -347,6 +350,9 @@ export class VatisTranscribe implements INodeType {
 
 				returnData.push({
 					json: responseData as IDataObject,
+					pairedItem: {
+						item: i,
+					},
 				});
 				continue;
 			}
@@ -380,6 +386,9 @@ export class VatisTranscribe implements INodeType {
 
 				returnData.push({
 					json: responseData as IDataObject,
+					pairedItem: {
+						item: i,
+					},
 				});
 				continue;
 			}
