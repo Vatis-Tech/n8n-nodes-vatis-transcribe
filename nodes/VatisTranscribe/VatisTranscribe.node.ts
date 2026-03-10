@@ -20,13 +20,13 @@ export class VatisTranscribe implements INodeType {
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],
 		credentials: [{ name: 'vatisTranscribeApi', required: true }],
-		requestDefaults: {
-			baseURL: 'https://docs.vatis.tech',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		},
+		// requestDefaults: {
+		// 	baseURL: 'https://docs.vatis.tech',
+		// 	headers: {
+		// 		Accept: 'application/json',
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// },
 		properties: [
 			{
 				displayName: 'Resource',
@@ -46,14 +46,14 @@ export class VatisTranscribe implements INodeType {
 						name: 'Transcribe',
 						value: 'transcribe',
 					},
-					{
-						name: 'Usage',
-						value: 'usage',
-					},
-					{
-						name: 'Webhook',
-						value: 'webhooks',
-					},
+					// {
+					// 	name: 'Usage',
+					// 	value: 'usage',
+					// },
+					// {
+					// 	name: 'Webhook',
+					// 	value: 'webhooks',
+					// },
 				],
 				default: 'transcribe',
 			},
