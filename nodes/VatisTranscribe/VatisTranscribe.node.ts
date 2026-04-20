@@ -1,4 +1,5 @@
-import { NodeConnectionTypes, NodeOperationError, type IDataObject, type IExecuteFunctions, type IHttpRequestOptions, type INodeExecutionData, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeApiError, NodeOperationError, type IDataObject, type IExecuteFunctions, type IHttpRequestOptions, type INodeExecutionData, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
+import type { JsonObject } from 'n8n-workflow';
 import { randomUUID } from 'crypto';
 import { transcribeDescription } from './resources/transcribe';
 import { streamsDescription } from './resources/streams';
@@ -308,7 +309,17 @@ export class VatisTranscribe implements INodeType {
 						requestOptions,
 					);
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
+					if (this.continueOnFail()) {
+						returnData.push({
+							json: {},
+							pairedItem: {
+								item: i,
+							},
+							error,
+						});
+						continue;
+					}
+					throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex: i });
 				}
 
 				returnData.push({
@@ -345,7 +356,17 @@ export class VatisTranscribe implements INodeType {
 						requestOptions,
 					);
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
+					if (this.continueOnFail()) {
+						returnData.push({
+							json: {},
+							pairedItem: {
+								item: i,
+							},
+							error,
+						});
+						continue;
+					}
+					throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex: i });
 				}
 
 				returnData.push({
@@ -381,7 +402,17 @@ export class VatisTranscribe implements INodeType {
 						requestOptions,
 					);
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
+					if (this.continueOnFail()) {
+						returnData.push({
+							json: {},
+							pairedItem: {
+								item: i,
+							},
+							error,
+						});
+						continue;
+					}
+					throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex: i });
 				}
 
 				returnData.push({

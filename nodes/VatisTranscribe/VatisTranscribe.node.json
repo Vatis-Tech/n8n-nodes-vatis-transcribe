@@ -2,16 +2,16 @@
 	"node": "n8n-nodes-vatis-transcribe",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": ["Development", "Developer Tools"],
+	"categories": ["Development", "Utility", "Miscellaneous"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://github.com/org/repo?tab=readme-ov-file#credentials"
+				"url": "https://docs.vatis.tech/get-started/get-api-access"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://github.com/org/repo?tab=readme-ov-file"
+				"url": "https://github.com/Vatis-Tech/n8n-nodes-vatis-transcribe"
 			}
 		]
 	}
