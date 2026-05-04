@@ -33,5 +33,10 @@ jobs:
       - name: Run build
         run: npm run build
 
+      # Provenance requires a GitHub-hosted runner, id-token: write, and a package.json
+      # repository URL that matches this repo (case-sensitive). See:
+      # https://docs.npmjs.com/generating-provenance-statements
       - name: Publish package with npm provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
