@@ -21,21 +21,15 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 'lts/*'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run build
-        run: npm run build
-
-      - name: Publish package with npm provenance
+      - name: Release
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
         env:
-          # Prefer npm Trusted Publishers (recommended by n8n).
-          # If your npm package isn't connected yet, add NPM_TOKEN as a fallback secret.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --provenance --access public
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
