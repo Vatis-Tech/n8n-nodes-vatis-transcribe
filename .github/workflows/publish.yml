@@ -2,9 +2,9 @@ name: Publish
 
 on:
   workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
@@ -33,10 +33,9 @@ jobs:
       - name: Run build
         run: npm run build
 
-      # Provenance requires a GitHub-hosted runner, id-token: write, and a package.json
-      # repository URL that matches this repo (case-sensitive). See:
-      # https://docs.npmjs.com/generating-provenance-statements
       - name: Publish package with npm provenance
         env:
+          # Prefer npm Trusted Publishers (recommended by n8n).
+          # If your npm package isn't connected yet, add NPM_TOKEN as a fallback secret.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public

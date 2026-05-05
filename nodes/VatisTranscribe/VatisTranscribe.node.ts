@@ -1,5 +1,4 @@
-import { NodeConnectionTypes, NodeApiError, NodeOperationError, type IDataObject, type IExecuteFunctions, type IHttpRequestOptions, type INodeExecutionData, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
-import type { JsonObject } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeApiError, NodeOperationError, type IDataObject, type IExecuteFunctions, type IHttpRequestOptions, type INodeExecutionData, type INodeType, type INodeTypeDescription, type JsonObject } from 'n8n-workflow';
 import { randomUUID } from 'crypto';
 import { transcribeDescription } from './resources/transcribe';
 import { streamsDescription } from './resources/streams';
@@ -21,13 +20,6 @@ export class VatisTranscribe implements INodeType {
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],
 		credentials: [{ name: 'vatisTranscribeApi', required: true }],
-		// requestDefaults: {
-		// 	baseURL: 'https://docs.vatis.tech',
-		// 	headers: {
-		// 		Accept: 'application/json',
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// },
 		properties: [
 			{
 				displayName: 'Resource',

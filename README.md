@@ -59,6 +59,14 @@ By the time users install community nodes, they usually know n8n basics; if not,
 - [Get API access (API key)](https://docs.vatis.tech/get-started/get-api-access)
 - [Submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/) (n8n)
 
+## Maintainer release flow (n8n verification)
+
+To satisfy n8n verification requirements, publish from GitHub Actions only (not from a local machine).
+
+1. Configure npm Trusted Publisher for this repository and `publish.yml`.
+2. Run `npm run release` locally to bump version, create tag (`v*`), and push.
+3. The `publish.yml` workflow publishes with `npm publish --provenance --access public`.
+
 ## Version history
 
 Published versions and release notes are tracked on [npm](https://www.npmjs.com/package/n8n-nodes-vatis-transcribe) and [GitHub Releases](https://github.com/Vatis-Tech/n8n-nodes-vatis-transcribe/releases).
